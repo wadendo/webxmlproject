@@ -6,9 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by saidiaym on 15/04/14.
- */
+
 public class Experiences {
     Map<String,String> Experiences;
 
@@ -17,12 +15,12 @@ public class Experiences {
         Experiences= new HashMap<String, String>();
     }
 
-    public void addCompetences(String lang, String niveau) {
+    public void addExperience(String lang, String niveau) {
      Experiences.put(lang, niveau);
     }
 
     @XmlElement
-    public List<String> getCompetences(){
+    public List<String> getExperience(){
         List<String> tmp = new LinkedList<String>();
         for (String str : Experiences.keySet())
             tmp.add(str + ": " + Experiences.get(str));

@@ -6,9 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by saidiaym on 15/04/14.
- */
+
 public class Competences {
 
     Map<String,String> Competences;

@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * Created by saidiaym on 08/04/14.
- */
 
 
 @Controller
@@ -17,22 +14,26 @@ public class ResumeController {
 
             /*Map<Integer,String> CompetencesProf = new HashMap<Integer, String>();
             Map<Integer,String> Experiences = new HashMap<Integer, String>();
-            Map <Integer,String> Loisirs =  new HashMap<Integer, String>();
+            Map <Integer,String> ResumeLoisirs =  new HashMap<Integer, String>();
             Map<Integer,String> Langues = new HashMap<Integer, String>();*/
 
     @RequestMapping(value="{name}", method = RequestMethod.GET)
-    public @ResponseBody Resume getCoffeeInXML(@PathVariable String name) {
+    public @ResponseBody
+    ListCV getCoffeeInXML(@PathVariable String name) {
 
 
             /*CompetencesProf.put(1,"developpementWeb");
             Experiences.put(1,"stage de 2mois a la societé Agoris");
-            Loisirs.put(1,"Football");
+            ResumeLoisirs.put(1,"Football");
             Langues.put(1,"arab");
             Langues.put(2,"Francais");*/
-
+       ListCV listCV = new ListCV();
        Resume resume = new Resume ("WADE","Ndongo" ,"CV");
+       Resume resume1= new Resume("Charles", "Jean","CV");
+        listCV.resumeList.add(resume);
+        listCV.resumeList.add(resume1);
 
-        return resume;
+        return listCV;
 
     }
 

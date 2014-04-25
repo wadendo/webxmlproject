@@ -3,9 +3,7 @@ package Rest;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- * Created by saidiaym on 08/04/14.
- */
+
 @XmlRootElement
 public class Resume {
 
@@ -13,6 +11,9 @@ public class Resume {
     private String nom;
     private String Prenom;
     public ResumeLangue langue;
+    public ResumeLoisirs loisirs;
+    public Experiences exp;
+    public Competences comp;
 
     public Resume(String Prenom,String Nom,String Name) {
 
@@ -20,11 +21,23 @@ public class Resume {
         this.Prenom = Prenom;
         this.name = Name;
         this.langue = new ResumeLangue();
+        this.loisirs = new ResumeLoisirs();
+        this.exp = new Experiences();
+        this.comp = new Competences();
 
         langue.addLangue("Anglais", "Moyen");
         langue.addLangue("Français", "Bon niveau");
         langue.addLangue("Chinois", "Bas");
         langue.addLangue("Espagnol", "Bas");
+
+        loisirs.addLoisir("nage", "excellent");
+        loisirs.addLoisir("football", "moyen");
+
+        exp.addExperience("Stage","moyen");
+        exp.addExperience("projet","intermediaire");
+
+        comp.addCompetences("java","excellent");
+        comp.addCompetences("xml","intermediaire");
 
     }
     public Resume(){
@@ -58,7 +71,7 @@ public class Resume {
     public void setPrenom (String p) {
         this.Prenom = p;
     }
-
+/*
     @XmlElement
     public ResumeLangue getLangues(){
         return this.langue;
@@ -68,4 +81,13 @@ public class Resume {
         this.langue = rl;
     }
 
+    @XmlElement
+    public ResumeLoisirs getResumeLoisirs(){
+        return this.loisirs;
+    }
+
+    public void setResumeLoisirs(ResumeLoisirs l) {
+        this.loisirs = l;
+    }
+*/
 }

@@ -4,9 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by saidiaym on 15/04/14.
- */
+
 public class ResumeLangue {
 
     List<String> lang;
