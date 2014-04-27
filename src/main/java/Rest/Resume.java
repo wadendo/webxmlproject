@@ -15,16 +15,16 @@ public class Resume {
     public Experiences exp;
     public Competences comp;
 
-    public Resume(String Prenom,String Nom,String Name) {
+    public Resume(String Nom,String Prenom,String Name,ResumeLangue Langue,ResumeLoisirs Loisirs,Experiences Exp,Competences Comp ) {
 
         this.nom = Nom;
         this.Prenom = Prenom;
         this.name = Name;
-        this.langue = new ResumeLangue();
-        this.loisirs = new ResumeLoisirs();
-        this.exp = new Experiences();
-        this.comp = new Competences();
-
+        this.langue = Langue;
+        this.loisirs = Loisirs;
+        this.exp = Exp;
+        this.comp = Comp;
+/*
         langue.addLangue("Anglais", "Moyen");
         langue.addLangue("Français", "Bon niveau");
         langue.addLangue("Chinois", "Bas");
@@ -38,7 +38,7 @@ public class Resume {
 
         comp.addCompetences("java","excellent");
         comp.addCompetences("xml","intermediaire");
-
+*/
     }
     public Resume(){
 
