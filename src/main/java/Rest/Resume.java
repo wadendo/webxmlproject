@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Resume {
 
+    private  int id;
     private  String name;
     private String nom;
     private String Prenom;
@@ -15,8 +16,8 @@ public class Resume {
     public Experiences exp;
     public Competences comp;
 
-    public Resume(String Nom,String Prenom,String Name,ResumeLangue Langue,ResumeLoisirs Loisirs,Experiences Exp,Competences Comp ) {
-
+    public Resume(int id,String Nom,String Prenom,String Name,ResumeLangue Langue,ResumeLoisirs Loisirs,Experiences Exp,Competences Comp ) {
+        this.id = id;
         this.nom = Nom;
         this.Prenom = Prenom;
         this.name = Name;
@@ -42,6 +43,15 @@ public class Resume {
     }
     public Resume(){
 
+    }
+
+    @XmlElement
+    public  int  getId(){
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @XmlElement
