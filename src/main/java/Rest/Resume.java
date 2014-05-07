@@ -11,7 +11,7 @@ public class Resume {
     private  String name;
     private String nom;
     private String Prenom;
-    public ResumeLangue langue;
+    public ResumeLangue langues;
     public ResumeLoisirs loisirs;
     public Experiences exp;
     public Competences comp;
@@ -21,7 +21,7 @@ public class Resume {
         this.nom = Nom;
         this.Prenom = Prenom;
         this.name = Name;
-        this.langue = Langue;
+        this.langues = Langue;
         this.loisirs = Loisirs;
         this.exp = Exp;
         this.comp = Comp;

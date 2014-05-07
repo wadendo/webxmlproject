@@ -2,10 +2,9 @@ package Rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import javax.xml.bind.JAXBException;
 
 
 @Controller
@@ -31,8 +30,8 @@ public class ResumeController {
         la.addLangue("Chinois", "Bas");
         la.addLangue("Espagnol", "Bas");
 
-        lo.addLoisir("nage", "excellent");
-        lo.addLoisir("football", "moyen");
+        lo.addLoisir("nage");
+        lo.addLoisir("football");
 
         E.addExperience("Stage", "moyen");
         E.addExperience("projet", "intermediaire");
@@ -82,8 +81,6 @@ public class ResumeController {
             ResumeLoisirs.put(1,"Football");
             Langues.put(1,"arab");
             Langues.put(2,"Francais");*/
-
-
         return listCV;
 
 
@@ -110,11 +107,11 @@ public class ResumeController {
 
     }
 
-
+/*
     @RequestMapping(value="{id}/{name}/{nom}/{prenom}/Experiences/{exp1}/{niveau1}/{exp2}/{niveau2}/{exp3}/{niveau3}" +
             "/Langues/{lan1}/{niveaul1}/{lan2}/{niveaul2}/{lan3}/{niveaul3}" +
             "/Competences/{com1}/{niveauc1}/{com2}/{niveauc2}/{com3}/{niveauc3}/"+
-            "Loisirs/{loi1}/{niveaull1}/{loi2}/{niveaull2}/{loi3}/{niveaull3}", method = RequestMethod.GET)
+            "Loisirs/{loi1}/{loi2}/{loi3}", method = RequestMethod.GET)
     public @ResponseBody
     void putCVInXML(@PathVariable int id,@PathVariable String name, @PathVariable String nom, @PathVariable String prenom,
                       @PathVariable String exp1,@PathVariable String exp2,@PathVariable String exp3,
@@ -123,8 +120,8 @@ public class ResumeController {
                       @PathVariable String niveauc1,@PathVariable String niveauc2,@PathVariable String niveauc3,
                       @PathVariable String lan1,@PathVariable String lan2,@PathVariable String lan3,
                       @PathVariable String niveaul1,@PathVariable String niveaul2,@PathVariable String niveaul3,
-                      @PathVariable String loi1,@PathVariable String loi2,@PathVariable String loi3,
-                      @PathVariable String niveaull1,@PathVariable String niveaull2,@PathVariable String niveaull3) {
+                      @PathVariable String loi1,@PathVariable String loi2,@PathVariable String loi3
+                     ) {
 
        Experiences Ex = new Experiences();
        Competences Com = new Competences();
@@ -142,17 +139,26 @@ public class ResumeController {
        lan.addLangue(lan2,niveaul2);
        lan.addLangue(lan3,niveaul3);
 
-       loiss.addLoisir(loi1, niveaull1);
-       loiss.addLoisir(loi2,niveaull2);
-       loiss.addLoisir(loi3,niveaull3);
+       loiss.addLoisir(loi1);
+       loiss.addLoisir(loi2);
+       loiss.addLoisir(loi3);
 
        Resume resume3= new Resume(id,nom,prenom,name,lan,loiss,Ex,Com);
         listCV.resumeList.add(resume3);
         //return listCV;
 
 
-    }
+    } */
+    @RequestMapping( method = RequestMethod.PUT)
+    @ResponseBody
+    public String putComputer(@RequestBody Resume resume) throws JAXBException {
+        //resume.setId(id);
 
+        listCV.resumeList.add(resume);
+
+        return "Bien Ajoute";
+
+    }
 
 
 
