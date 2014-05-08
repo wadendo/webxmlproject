@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.bind.JAXBException;
-
 
 @Controller
 @RequestMapping("/Resume")
@@ -71,7 +69,7 @@ public class ResumeController {
 
     }
 */
-    @RequestMapping( method = RequestMethod.GET ,params = "list")
+    @RequestMapping( method = RequestMethod.GET)
     public @ResponseBody
     ListCV getListInXML() {
 
@@ -107,59 +105,27 @@ public class ResumeController {
 
     }
 
-/*
-    @RequestMapping(value="{id}/{name}/{nom}/{prenom}/Experiences/{exp1}/{niveau1}/{exp2}/{niveau2}/{exp3}/{niveau3}" +
-            "/Langues/{lan1}/{niveaul1}/{lan2}/{niveaul2}/{lan3}/{niveaul3}" +
-            "/Competences/{com1}/{niveauc1}/{com2}/{niveauc2}/{com3}/{niveauc3}/"+
-            "Loisirs/{loi1}/{loi2}/{loi3}", method = RequestMethod.GET)
-    public @ResponseBody
-    void putCVInXML(@PathVariable int id,@PathVariable String name, @PathVariable String nom, @PathVariable String prenom,
-                      @PathVariable String exp1,@PathVariable String exp2,@PathVariable String exp3,
-                      @PathVariable String niveau1,@PathVariable String niveau2,@PathVariable String niveau3,
-                      @PathVariable String com1,@PathVariable String com2,@PathVariable String com3,
-                      @PathVariable String niveauc1,@PathVariable String niveauc2,@PathVariable String niveauc3,
-                      @PathVariable String lan1,@PathVariable String lan2,@PathVariable String lan3,
-                      @PathVariable String niveaul1,@PathVariable String niveaul2,@PathVariable String niveaul3,
-                      @PathVariable String loi1,@PathVariable String loi2,@PathVariable String loi3
-                     ) {
 
-       Experiences Ex = new Experiences();
-       Competences Com = new Competences();
-       ResumeLangue lan = new ResumeLangue();
-       ResumeLoisirs loiss = new ResumeLoisirs();
-       Ex.addExperience(exp1,niveau1);
-       Ex.addExperience(exp2,niveau2);
-       Ex.addExperience(exp3,niveau3);
-
-       Com.addCompetences(com1, niveauc1);
-       Com.addCompetences(com2,niveauc2);
-       Com.addCompetences(com3,niveauc3);
-
-       lan.addLangue(lan1, niveaul1);
-       lan.addLangue(lan2,niveaul2);
-       lan.addLangue(lan3,niveaul3);
-
-       loiss.addLoisir(loi1);
-       loiss.addLoisir(loi2);
-       loiss.addLoisir(loi3);
-
-       Resume resume3= new Resume(id,nom,prenom,name,lan,loiss,Ex,Com);
-        listCV.resumeList.add(resume3);
-        //return listCV;
-
-
-    } */
     @RequestMapping( method = RequestMethod.PUT)
     @ResponseBody
-    public String putComputer(@RequestBody Resume resume) throws JAXBException {
-        //resume.setId(id);
+    public String putResume(@RequestBody Resume resume)  {
+        int id = resume.getId();
+        for (int i=0;i<listCV.resumeList.size();i++)
+        {
+            //resume2 =listCV.resumeList.get(i);
+            if( listCV.resumeList.get(i).getId()== id){
+
+                return "Un Cv avec cet identifiant existe déja";
+            }
+
+
+
+        }
 
         listCV.resumeList.add(resume);
 
-        return "Bien Ajoute";
+        return "CV bien ajoute";
 
-    }
-
-
+}
 
 }
