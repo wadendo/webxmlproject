@@ -31,8 +31,8 @@ public class ResumeController {
         lo.addLoisir("nage");
         lo.addLoisir("football");
 
-        E.addExperience("Stage", "moyen");
-        E.addExperience("projet", "intermediaire");
+        E.addExperiences("Stage", "moyen");
+        E.addExperiences("projet", "intermediaire");
 
         Co.addCompetences("java", "excellent");
         Co.addCompetences("xml", "intermediaire");

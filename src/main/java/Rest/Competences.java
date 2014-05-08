@@ -1,30 +1,24 @@
 package Rest;
 
 import javax.xml.bind.annotation.XmlElement;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 
 public class Competences {
 
-    Map<String,String> Competences;
+    List<String> lang;
 
     public Competences() {
-
-       Competences= new HashMap<String, String>();
+        this.lang = new LinkedList<String>();
     }
 
     public void addCompetences(String lang, String niveau) {
-        Competences.put(lang, niveau);
+        this.lang.add(lang + ": " +niveau);
     }
 
     @XmlElement
-    public List<String> getCompetences(){
-        List<String> tmp = new LinkedList<String>();
-        for (String str : Competences.keySet())
-            tmp.add(str + ": " + Competences.get(str));
-        return tmp;
+    public  List<String> getCompetences(){
+        return this.lang;
     }
 }
